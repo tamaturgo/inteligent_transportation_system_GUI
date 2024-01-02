@@ -1,12 +1,16 @@
 import React from 'react';
 import Menu from './Components/Menu';
+import { Provider } from 'react-redux';
+import store from './redux/store'; // Seu arquivo com a configuração do Redux
 
 const App: React.FC = () => {
   return (
-    <div className="App w-full h-full bg-gray-100">
-      <Menu/>
-    </div>
+    <Provider store={store}>
+      <Menu />
+    </Provider>
   );
 };
 
 export default App;
+// No seu arquivo index.tsx ou App.tsx
+

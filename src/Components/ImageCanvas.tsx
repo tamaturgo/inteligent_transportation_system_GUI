@@ -5,9 +5,10 @@ interface ImageCanvasProps {
   onClick: (e: React.MouseEvent<HTMLImageElement>) => void;
   onKeyUp: (e: React.KeyboardEvent) => void;
   tabIndex: number;
+  cursor: string;
 }
 
-const ImageCanvas: React.FC<ImageCanvasProps> = ({ imageSrc, onClick, onKeyUp, tabIndex }) => {
+const ImageCanvas: React.FC<ImageCanvasProps> = ({ imageSrc, onClick, onKeyUp, tabIndex, cursor }) => {
   return (
     <div className="relative">
       {imageSrc === "" ? (
@@ -15,9 +16,8 @@ const ImageCanvas: React.FC<ImageCanvasProps> = ({ imageSrc, onClick, onKeyUp, t
       ) : (
         <img
           src={imageSrc}
-          className="w-full h-full"
           onClick={onClick}
-          style={{ cursor: "crosshair" }}
+          style={{ cursor: cursor, width: "720px", height: "360px" }}
           onKeyUp={onKeyUp}
           tabIndex={tabIndex}
           alt="Imagem"
